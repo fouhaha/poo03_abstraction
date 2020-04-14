@@ -7,7 +7,7 @@ abstract class HighWay
 
     protected $maxSpeed;
 
-    private $currentVehicles = [];
+    protected $currentVehicles = [];
 
 
     abstract public function addVehicule(Vehicle $vehicle);
@@ -40,53 +40,6 @@ abstract class HighWay
     {
         if($maxSpeed >= 0){
             $this->maxSpeed = $maxSpeed;
-        }
-    }
-}
-
-class MotorWay extends HighWay
-{
-    public function __construct(int $nbLane = 4, int $maxSpeed = 130)
-    {
-        parent::__construct($nbLane, $maxSpeed);
-    }
-
-    public function addVehicule($vehicle)
-    {
-        if (($vehicle instanceof Car)) {
-            $this->currentVehicles[] = $vehicle;
-        }
-    }
-
-
-}
-
-class PedestrianWay extends HighWay
-{
-    public function __construct(int $nbLane = 1, int $maxSpeed = 10)
-    {
-        parent::__construct($nbLane, $maxSpeed);
-    }
-
-    public function addVehicule($vehicle)
-    {
-        if (($vehicle instanceof Bike) or ($vehicle instanceof Skateboard)) {
-            $this->currentVehicles[] = $vehicle;
-        }
-    }
-}
-
-class ResidentialWay extends HighWay
-{
-    public function __construct(int $nbLane = 2, int $maxSpeed = 50)
-    {
-        parent::__construct($nbLane, $maxSpeed);
-    }
-
-    public function addVehicule($vehicle)
-    {
-        if (($vehicle instanceof Vehicle)) {
-            $this->currentVehicles[] = $vehicle;
         }
     }
 }

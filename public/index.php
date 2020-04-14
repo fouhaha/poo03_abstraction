@@ -1,6 +1,9 @@
 <?php
 
-
+require_once 'MotorWay.php';
+require_once 'PedestrianWay.php';
+require_once 'ResidentialWay.php';
+require_once 'HighWay.php';
 require_once 'Bike.php';
 require_once 'Skateboard.php';
 require_once 'Car.php';
@@ -72,12 +75,8 @@ echo $bike->brake();
 */
 
 
-/*
-require_once 'MotorWay.php';
-require_once 'PedestrianWay.php';
-require_once 'ResidentialWay.php';
-*/
-require_once 'HighWay.php';
+
+
 
 $motorWay = new MotorWay();
 $motorWay->addVehicule($tesla);
