@@ -1,10 +1,10 @@
 <?php
 
 require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
 
-class Bike extends Vehicle
+class Bike extends Vehicle implements LightableInterface
 {
-/*//////////////////////    ICI sont les propriétés de la classe    //////////////*/
     /**
      * @param int $nbSeats
      */
@@ -21,63 +21,19 @@ class Bike extends Vehicle
     /**
      * @var integer
      */
-//    public $nbWheels = 2;
 
-/*//////////////////////    ICI sont les méthodes de la classe      //////////////*/
-
-/*    public function forward()
+    public function switchOn(): bool
     {
-        $this->currentSpeed = 15;
-
-        return "Go !";
-    }
-*/
-/*
-    public function brake(): string
-    {
-        $sentence = "";
-        while ($this->currentSpeed > 0) {
-            $this->currentSpeed--;
-            $sentence .= "Brake !!!";
-        }
-        $sentence .= "I'm stopped !";
-        return $sentence;
-    }
-*/
-
-/*    public function dump()
-    {
-        var_dump($this);
-    }
-*/
-/*
-    public function getColor(): string
-    {
-        return $this->color;
-    }
-
-    public function setColor(string $color): void
-    {
-        $this->color = $color;
-    }
-
-    public function getCurrentSpeed(): int
-    {
-        return $this->currentSpeed;
-    }
-
-    public function setCurrentSpeed(int $currentSpeed): void
-    {
-        if($currentSpeed >= 0){
-            $this->currentSpeed = $currentSpeed;
+        if ($this->currentSpeed > 10) {
+            return true;
+        } else {
+            return false;
         }
     }
-*/
-/*///////////////////////   ICI, méthode CONSTRUCTEUR      /////////////////*/
-/*    public function __construct(string $color)
+
+    public function switchOff(): bool
     {
-        $this->color = $color;
+        return false;
     }
-*/
 }
 

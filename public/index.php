@@ -30,13 +30,14 @@ echo ("<br>the truck's speed is : " . $truck->getCurrentSpeed() . " km/h.<br>");
 echo $truck->brake();
 echo ("<br>Speed of the truck : " . $truck->getCurrentSpeed() . " km/h.<br>");
 $truck->setFilling(0);
-echo ("the filling level is : " . $truck->getFilling());
+echo ("the filling level is : " . $truck->getFilling() . "<br>");
 
 
 echo $bicycle->forward();
-
+echo "<br>";
 echo $car->forward();
-var_dump(Car::ALLOWED_ENERGIES);
+echo "<br>";
+// var_dump(Car::ALLOWED_ENERGIES);
 
 
 /*//////////////////    Partie Bike     /////////////////////*/
@@ -49,16 +50,20 @@ $bike = new Bike('green', 1);
 //  $bike->setColor("blue");
 */
 
+echo "Here is now the part about the Interface, with for instance, the functions switchOn() and swithOff(), telling about the state of the light on the vehicle :<br>";
 $bike->setCurrentSpeed(0);
-var_dump($bike);
+// var_dump($bike);
+echo "The light of the bike is on? (1 for true, nothing for false) : " . $bike->switchOn() . "<br>";
+echo "while its speed is presently of : " . $bike->getCurrentSpeed() . "km/h<br>";
 
 echo $bike->forward();
 echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
+echo "And here, is the light of the bike on? (1 for true, nothing for false) : " . $bike->switchOn() . "<br>";
 echo $bike->brake();
 echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
 echo $bike->brake();
 
-var_dump($bike);
+// var_dump($bike);
 /*
 $bike->dump();
 */
@@ -81,14 +86,14 @@ echo $bike->brake();
 $motorWay = new MotorWay();
 $motorWay->addVehicule($tesla);
 $motorWay->addVehicule($ferrari);
-var_dump($motorWay);
+// var_dump($motorWay);
 
 $pedetrianWay = new PedestrianWay();
 $pedetrianWay->addVehicule($bicycle);
 $pedetrianWay->addVehicule($bike);
 $pedetrianWay->addVehicule($skate);
 $pedetrianWay->addVehicule($skateboard);
-var_dump($pedetrianWay);
+// var_dump($pedetrianWay);
 
 $residentialWay = new ResidentialWay();
 $residentialWay->addVehicule($bicycle);
@@ -99,4 +104,4 @@ $residentialWay->addVehicule($tesla);
 $residentialWay->addVehicule($ferrari);
 $residentialWay->addVehicule($schoolBus);
 $residentialWay->addVehicule($truck);
-var_dump($residentialWay);
+// var_dump($residentialWay);

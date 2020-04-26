@@ -1,8 +1,9 @@
 <?php
 
 require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
 
-class Car extends Vehicle
+class Car extends Vehicle implements LightableInterface
 {
     const ALLOWED_ENERGIES = [
         'fuel',
@@ -47,76 +48,14 @@ class Car extends Vehicle
     {
         $this->energyLevel = $energyLevel;
     }
+
+    public function switchOn(): bool
+    {
+        return true;
+    }
+
+    public function switchOff(): bool
+    {
+        return false;
+    }
 }
-
-
-/*
-class Car
-{
-
-    private $nbWheels;
-    private $currentSpeed;
-    private $energyLevel;
-    private $nbSeats;
-    private $color;
-    private $energy;
-
-
-    public function __construct(string $color, int $nbSeats, string $energy)
-    {
-        $this->color = $color;
-        $this->nbSeats = $nbSeats;
-        $this->energy = $energy;
-    }
-
-    public function start()
-    {
-        while ($this->currentSpeed < 88) {
-            $this->currentSpeed++;
-        }
-    }
-
-    public function forward()
-    {
-        $this->currentSpeed = 88;
-    }
-
-    public function brake()
-    {
-        while ($this->currentSpeed > 0) {
-            $this->currentSpeed--;
-        }
-    }
-
-    public function getNbWheels(): int
-    {
-        return $this->nbWheels;
-    }
-
-    public function getCurrentSpeed(): int
-    {
-        return $this->currentSpeed;
-    }
-
-    public function getColor(): string
-    {
-        return $this->color;
-    }
-
-    public function getNbSeats(): int
-    {
-        return $this->nbSeats;
-    }
-
-    public function getEnergy(): string
-    {
-        return $this->energy;
-    }
-
-    public function getEnergyLevel(): int
-    {
-        return $this->energyLevel;
-    }
-
-}
-*/
